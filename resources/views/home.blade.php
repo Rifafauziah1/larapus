@@ -6,7 +6,6 @@
             <h1 class="m-0">Home</h1>
         </div>
     </div>
-
 </div>
 @endsection
 @section('content')
