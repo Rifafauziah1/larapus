@@ -25,7 +25,7 @@
                         <table class="table">
                             <tr>
                                 <th>Nomor</th>
-                                <th>Judul</th>
+                                <th>Judul Buku</th>
                                 <th>Nama Penulis</th>
                                 <th>Jumlah Buku</th>
                                 <th>Cover Buku</th>
@@ -38,14 +38,14 @@
                                 <td>{{$data->title}}</td>
                                 <td>{{$data->author->name}}</td>
                                 <td>{{$data->amount}}</td>
-                                <td><img src="{{$data->image()}}" alt="" style="width:150px; heifht: 150px;" alt="Cover"></td>
+                                <td><img src="{{$data->image()}}" alt="" style="width:150px; height:150px;" alt="Cover"></td>
                                 <td>
-                                    <form action="{{route('books.destory', $data->id)}}" method="post">
+                                    <form action="{{route('books.destroy',$data->id)}}" method="post">
                                         @method('delete')
                                         @csrf
-                                        <a href="{{route('books.edit',$data->id)}} class="btn btn-outline-info">Edit</a>
-                                        <a href="{{route('books.edit',$data->id)}} class="btn btn-outline-warning">Show</a>
-                                        <button type="submit" class="btn btn-outline-denger" onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
+                                        <a href="{{route('books.edit',$data->id)}}" class="btn btn-outline-info">Edit</a>
+                                        <a href="{{route('books.show',$data->id)}}" class="btn btn-outline-warning">Show</a>
+                                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
                                     </form>
                                 </td>
                             </tr>

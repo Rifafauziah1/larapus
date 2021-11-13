@@ -3,7 +3,7 @@
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-12">
-            <div class="cl-sm-12">
+            <div class="col-sm-12">
                 <h1 class="m-0">Edit Data Buku</h1>
             </div>
         </div>
@@ -23,7 +23,7 @@
                         @method('put')
                         <div class="form-group">
                             <label for="">Masukan Judul Buku</label>
-                            <input type="text" name="title" value="{{book->title}}" class="form-control @error('title') is-invalid @enderror">
+                            <input type="text" name="title" value="{{$book->title}}" class="form-control @error('title') is-invalid @enderror">
                             @error('title')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{$message}}</strong>
@@ -32,26 +32,35 @@
                         </div>
                         <div class="form-group">
                             <label for="">Nama Penulis Buku</label>
-                            <select name="author_Id" class="form-control @error('author_id') is-invalid @enderror">
+                            <select name="author_id" class="form-control @error('author_id') is-invalid @enderror" >
                                 @foreach($author as $data)
-                                    <option value="{{$data->$id}}" {{$data->id == $book->author_id? 'selected="selected"' : ''}}>{{$data->name}}></option>
+                                    <option value="{{$data->id}}" {{$data->id == $book->author_id ? 'selected="selected"' : '' }}>{{$data->name}}</option>
                                 @endforeach
                             </select>
                             @error('author_id')
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{$message}}</strong>
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Masukan Jumlah Buku</label>
+                            <input type="number" name="amount" class="form-control @error('amount') is-invalid @enderror">
+                             @error('amount')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label for="">Masukan Cover Buku</label>
                             <br>
-                            <img src="{{$book->image()}}" height="75" style="padding: 10px;"/>
+                            <img src="{{$book->image()}}" height="75" style="padding:10px;"/>
                             <input type="file" name="cover" class=form-control>
                         </div>
                         <div class="form-group">
                             <button type="reset" class="btn btn-outline-warning">Reset</button>
-                            <button type="reset" class="btn btn-outline-primary">Simpan</button>
+                            <button type="simpan" class="btn btn-outline-primary">Simpan</button>
                         </div>
                     </form>
                 </div>

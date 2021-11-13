@@ -48,7 +48,7 @@ class BookController extends Controller
             'cover' => 'required|image|max:2048',
         ]);
 
-        $bool = new Book;
+        $book = new Book;
         $book->title = $request->title;
         $book->author_id = $request->author_id;
         //upload image / foto
@@ -111,7 +111,7 @@ class BookController extends Controller
         $book->title = $request->title;
         $book->author_id = $request->author_id;
         //upload image / foto
-        if ($request>hasFile('cover')){
+        if ($request->hasFile('cover')){
             $book->deleteImage();
             $image = $request->file('cover');
             $name = rand(1000, 9999) . $image->getClientOriginalName();

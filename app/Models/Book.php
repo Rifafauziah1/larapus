@@ -17,13 +17,13 @@ class Book extends Model
     {
         //data model book bisa dimiliki oleh model author
         //melalui fk "author_id"
-        return $this->belongsTo('App\Models\Author'.'author_id');    
+        return $this->belongsTo('App\Models\Author','author_id');    
     }
 
     public function image()
     {
-        if($this->cover && file_exists(public_path('image/books/' . $this->cover))) {
-            return asset('image/books/' . $this->cover);
+        if($this->cover && file_exists(public_path('images/books/' . $this->cover))) {
+            return asset('images/books/' . $this->cover);
         } else {
             return asset('images/no_image.png');
         }
@@ -31,7 +31,7 @@ class Book extends Model
     public function deleteImage()
     {
         if ($this->cover && file_exists(public_path('images/books/' . $this->cover))) {
-            return unlink(public_path('images/books' . $this->cover));
+            return unlink(public_path('images/books/' . $this->cover));
         }
     }
 }

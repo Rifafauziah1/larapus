@@ -1,4 +1,4 @@
-@extends
+@extends('layouts.admin')
 @section('header')
 <div class="conten-header">
     <div class="container-fluid">
@@ -19,15 +19,15 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="">Judul Buku</label>
-                        <input type="text" name="title" vallue="{{$book->title}}" class="form-control" readonly>
+                        <input type="text" name="title" value="{{$book->title}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Nama Penulis</label>
-                        <input type="text" name="" class="form-control" vallue="{{$book->author->name}}" readonly>
+                        <input type="text" name="" class="form-control" value="{{$book->author->name}}" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Jumlah Buku</label>
-                        <input type="text" name="amount" vallue="{{$book->amount}}" class="form-control" readonly>
+                        <input type="number" name="amount" value="{{$book->amount}}" class="form-control" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Cover Buku</label>
